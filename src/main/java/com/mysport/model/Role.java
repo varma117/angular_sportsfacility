@@ -3,7 +3,7 @@ package com.mysport.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "roles")
+@Document("roles")
 public class Role {
 	@Id
 	private String id;

@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //(exclude= {DataSourceAutoConfiguration.class})
-public class DemoApplication {
+public class SportsFacilitiesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(SportsFacilitiesApplication.class, args);
 	}
 
 }

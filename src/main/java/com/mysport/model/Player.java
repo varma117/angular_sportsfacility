@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("sports")
 public class Player {
-	//add password 
+	
 	@Id
 	private String id;
 
