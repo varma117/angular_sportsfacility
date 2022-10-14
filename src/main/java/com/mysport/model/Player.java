@@ -1,15 +1,12 @@
 package com.mysport.model;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("sports")
@@ -60,17 +57,7 @@ public class Player {
 		this.password = password;
 	}
 
-	@DBRef
-	private Set<Role> roles = new HashSet<>();
-
-	public Set<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
-
+	
 	public String getId() {
 		return id;
 	}
@@ -156,7 +143,7 @@ public class Player {
 	public Player(String id, @NotBlank String firstName, @NotBlank String lastName, @NotBlank Date dob,
 			@NotBlank String address, @NotBlank String state, @NotBlank String country, @NotBlank String pan,
 			@NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(max = 120) String password,
-			@NotBlank @Size(max = 10) String mobile, Set<Role> roles) {
+			@NotBlank @Size(max = 10) String mobile) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -169,7 +156,7 @@ public class Player {
 		this.email = email;
 		this.password = password;
 		this.mobile = mobile;
-		this.roles = roles;
+		
 	}
 
 	public Player() {

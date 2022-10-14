@@ -3,6 +3,7 @@ package com.mysport.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.mysport.exceptionhandling.ResourceNotFoundException;
@@ -19,7 +20,8 @@ public class PlayerServices {
 
 	@Autowired
 	SportsFacilityRepository facilityRepo;
-
+	
+	
 	public String registerPlayer(Player player) {
 		Player newplayer = playerRepo.save(player);
 		return newplayer.getId();

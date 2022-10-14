@@ -25,10 +25,21 @@ public class SportsFacility {
 	@NotBlank
 	private Date dateOfGame;
 	
+	@NotBlank
+	private String gameName;
+	
 //	@NotBlank
 //	@DateTimeFormat(style = "hh:mm")
 //	@JsonDeserialize(using = TimeDeserializer.class)
 //	private Time timeOfGame;
+
+	public String getGameName() {
+		return gameName;
+	}
+
+	public void setGameName(String gameName) {
+		this.gameName = gameName;
+	}
 
 	public String getId() {
 		return id;
@@ -78,19 +89,21 @@ public class SportsFacility {
 //		this.timeOfGame = timeOfGame;
 //	}
 
+	
+
+	public SportsFacility() {
+		super();
+	}
+
 	public SportsFacility(String id, @NotBlank String firstName, @NotBlank String lastName, @NotBlank Date dob,
-			@NotBlank Date dateOfGame) {
+			@NotBlank Date dateOfGame, @NotBlank String gameName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dob = dob;
 		this.dateOfGame = dateOfGame;
-		//this.timeOfGame = timeOfGame;
-	}
-
-	public SportsFacility() {
-		super();
+		this.gameName = gameName;
 	}
 	
 	
