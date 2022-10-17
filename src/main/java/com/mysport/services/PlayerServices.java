@@ -3,14 +3,15 @@ package com.mysport.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.mysport.exceptionhandling.ResourceNotFoundException;
 import com.mysport.model.Player;
 import com.mysport.model.SportsFacility;
+import com.mysport.model.Users;
 import com.mysport.repository.PlayerRepository;
 import com.mysport.repository.SportsFacilityRepository;
+import com.mysport.repository.UserRepository;
 
 @Service
 public class PlayerServices {
@@ -21,10 +22,17 @@ public class PlayerServices {
 	@Autowired
 	SportsFacilityRepository facilityRepo;
 	
+	@Autowired
+	UserRepository userRepo;
+	
 	
 	public String registerPlayer(Player player) {
 		Player newplayer = playerRepo.save(player);
-		return newplayer.getId();
+		Users user = new Users();
+		user.setEmail(player.getEmail());
+		user.setPassword(player.getPassword());
+		userRepo.save(user);
+     	return newplayer.getId();
 
 	}
 

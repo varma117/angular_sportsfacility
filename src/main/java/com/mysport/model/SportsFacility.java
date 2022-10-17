@@ -28,10 +28,6 @@ public class SportsFacility {
 	@NotBlank
 	private String gameName;
 	
-//	@NotBlank
-//	@DateTimeFormat(style = "hh:mm")
-//	@JsonDeserialize(using = TimeDeserializer.class)
-//	private Time timeOfGame;
 
 	public String getGameName() {
 		return gameName;
@@ -80,14 +76,6 @@ public class SportsFacility {
 	public void setDateOfGame(Date dateOfGame) {
 		this.dateOfGame = dateOfGame;
 	}
-
-//	public Time getTimeOfGame() {
-//		return timeOfGame;
-//	}
-//
-//	public void setTimeOfGame(Time timeOfGame) {
-//		this.timeOfGame = timeOfGame;
-//	}
 
 	
 

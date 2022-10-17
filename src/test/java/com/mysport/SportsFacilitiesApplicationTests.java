@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.Date;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
