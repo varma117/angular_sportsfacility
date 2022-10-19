@@ -21,18 +21,17 @@ public class PlayerServices {
 
 	@Autowired
 	SportsFacilityRepository facilityRepo;
-	
+
 	@Autowired
 	UserRepository userRepo;
-	
-	
+
 	public String registerPlayer(Player player) {
 		Player newplayer = playerRepo.save(player);
 		Users user = new Users();
 		user.setEmail(player.getEmail());
 		user.setPassword(player.getPassword());
 		userRepo.save(user);
-     	return newplayer.getId();
+		return newplayer.getId();
 
 	}
 
@@ -45,6 +44,19 @@ public class PlayerServices {
 
 	public List<Player> getPlayers() {
 		return playerRepo.findAll();
+	}
+
+	public String bookSlot(SportsFacility facility) {
+		SportsFacility slot = new SportsFacility(facility.getId(), facility.getFirstName(), facility.getLastName(),
+				facility.getDob(), facility.getDateOfGame(), facility.getGameName());
+
+		if (!facilityRepo.existsByDateOfGameAndGameName(slot.getDateOfGame(), slot.getGameName())) {
+
+			facilityRepo.save(facility);
+			return facility.getGameName() + "boooked";
+		} else
+			return "slote alreday booked";
+
 	}
 
 	public Player updateDetails(Player player, String id) {

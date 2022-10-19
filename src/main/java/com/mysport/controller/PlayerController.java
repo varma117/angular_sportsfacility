@@ -1,5 +1,6 @@
 package com.mysport.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mysport.model.Player;
 import com.mysport.model.SportsFacility;
 import com.mysport.model.Users;
+import com.mysport.repository.SportsFacilityRepository;
 import com.mysport.repository.UserRepository;
 import com.mysport.services.PlayerServices;
 
@@ -28,6 +30,8 @@ public class PlayerController {
 
 	@Autowired
 	UserRepository userRepo;
+	
+	
 
 	@PostMapping("/login")
 	public ResponseEntity<?> playerLoging(@RequestBody Users user) {
@@ -53,11 +57,19 @@ public class PlayerController {
 		playerService.registerSlote(facility);
 		return "facility confirmed ";
 	}
+	
+	@PostMapping("/slotebooking")
+	public String slotBooking(@RequestBody SportsFacility facility) {
+		String slote = playerService.bookSlot(facility);
+		return "slote booked";
+	}
 
 	@GetMapping("/getplayers")
 	public List<Player> getPlayers() {
 		return playerService.getPlayers();
 	}
+	
+	
 
 	@PutMapping("/updatedetails/{id}")
 	public ResponseEntity<Player> updatedetails(@PathVariable("id") String id, @RequestBody Player player) {
